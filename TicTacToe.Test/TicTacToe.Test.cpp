@@ -60,7 +60,7 @@ namespace TicTacToeTest
 		TEST_METHOD(TestGameStatusInProgressTwo)
 		{
 			Board b;
-			char setup[3][3] = { {'X','O','X'}, {'O', 'X', 'O'}, {'X', 'O', ' '} };
+			char setup[3][3] = { {'X','O','X'}, {'O', 'X', 'O'}, {'O', 'O', ' '} };
 			b.SetBoard(setup);
 			Assert::AreEqual(' ', b.GameStatus());
 		}
@@ -68,7 +68,7 @@ namespace TicTacToeTest
 		TEST_METHOD(TestGameStatusTie)
 		{
 			Board b;
-			char setup[3][3] = { {'X','X','O'}, {'X', 'O', 'X'}, {'O', 'X', 'O'} };
+			char setup[3][3] = { {'X','X','O'}, {'O', 'O', 'X'}, {'X', 'X', 'O'} };
 			b.SetBoard(setup);
 			Assert::AreEqual('T', b.GameStatus());
 		}
@@ -105,7 +105,7 @@ namespace TicTacToeTest
 			Assert::AreEqual('X', b.GameStatus());
 		}
 
-		TEST_METHOD(TestGameStatusDiagonalWin)
+		TEST_METHOD(TestGameStatusDiagonalLRWin)
 		{
 			Board b;
 			char setup[3][3] = { {'X',' ',' '}, {' ', 'X', ' '}, {' ', ' ', 'X'} };
@@ -113,5 +113,12 @@ namespace TicTacToeTest
 			Assert::AreEqual('X', b.GameStatus());
 		}
 
+		TEST_METHOD(TestGameStatusDiagonalRLWin)
+		{
+			Board b;
+			char setup[3][3] = { {' ',' ','O'}, {' ', 'O', ' '}, {'O', ' ', ' '} };
+			b.SetBoard(setup);
+			Assert::AreEqual('O', b.GameStatus());
+		}
 	};
 }
