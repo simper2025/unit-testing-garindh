@@ -57,5 +57,14 @@ namespace TicTacToeTest
 			Assert::AreEqual(' ', b.GameStatus());
 		}
 
+		TEST_METHOD(TestGameStatusInProgressTwo)
+		{
+			Board b;
+			char setup[3][3] = { {'X','O','X'}, {'O', 'X', 'O'}, {'X', 'O', ' '} };
+			b.SetBoard(setup);
+			Assert::AreEqual(' ', b.GameStatus());
+		}
+
+
 	};
 }
