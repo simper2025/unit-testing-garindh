@@ -17,6 +17,7 @@ bool Board::SetSquare(int row, int col, char player)
 	if (grid[row][col] == ' ')
 	{
 		grid[row][col] = player;
+		return true;
 	}
 	return false;
 }
