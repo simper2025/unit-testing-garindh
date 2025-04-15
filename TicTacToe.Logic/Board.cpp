@@ -30,6 +30,25 @@ bool Board::SetSquare(int row, int col, char player)
 
 char Board::GameStatus()
 {
-	return ' ';
+	int numChars = 0;
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			if (grid[i][j] != ' ')
+			{
+				numChars++;
+			}
+		}
+	}
+
+	if (numChars == 9)
+	{
+		return 'T';
+	}
+	else
+	{
+		return ' ';
+	}
 }
 
