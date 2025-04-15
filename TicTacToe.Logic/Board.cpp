@@ -51,6 +51,12 @@ char Board::GameStatus()
 			return grid[0][i];
 		}
 
+		if (grid[i][0] != ' ' && grid[i][1] == grid[i][0] && grid[i][2] == grid[i][0])
+		{
+			won = true;
+			return grid[i][0];
+		}
+
 	}
 
 	if (numChars == 9 && !won)
